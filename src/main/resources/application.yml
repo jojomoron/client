@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:test;MODE=MySQL;DB_CLOSE_DELAY=-1
+    initialize: true
+    sql-script-encoding: UTF-8
+  application:
+    name: bookservice
+  boot:
+    admin:
+      url: http://localhost:8081
+      client:
+        metadata:
+          user.name: ${security.user.name}
+          user.password: ${security.user.password}
+
+server:
+  port: 8082
+
+management.security.enabled: true
+
+security:
+  user:
+    name: admin
+    password: 12345
